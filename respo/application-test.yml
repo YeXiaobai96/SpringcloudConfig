@@ -1,0 +1,74 @@
+server:
+  port: 8021
+
+logging:
+  level:
+    root: INFO
+    org:
+      springframework:
+        web: DEBUG
+      hibernate: ERROR
+neo:
+  hello: hello world
+eureka:
+  client:
+    service-url:
+      defaultZone: http://peer1:8011/eureka/,http://peer2:8012/eureka/,http://peer3:8013/eureka/
+spring:
+  #redis配置
+  application:
+    name: redis-show-service
+  redis:
+    # 内网
+    host: 192.168.3.60
+    port: 6381
+    timeout: 20000
+    database: 0
+    password: Yuhan123456
+    #redis集群模式配置
+    #    cluster:
+    #      nodes: 172.19.93.215:6379,172.19.93.216:6379,172.19.93.217:6379
+    #      max-redirects: 3
+    #redis哨兵模式配置
+    sentinel:
+      master: mymaster
+      # 内网
+      nodes: 192.168.3.60:26379,192.168.3.167:26379,192.168.3.168:26379
+
+  #MySql配置
+  datasource:
+    primary:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://192.168.3.141:3306/redis_mysql?useUnicode=true&characterEncoding=utf-8&useSSL=false
+      username: root
+      password: Yuhan123456
+    secondary:
+      url: jdbc:postgresql://192.168.3.152:5432/thingsboard
+      driver-class-name: org.postgresql.Driver
+      username: postgres
+      password: 123456
+  #JPA配置
+  jpa:
+    #    hibernate:
+    #      naming:
+    #        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+    #  ddl-auto: update
+    primary:
+      show-sql: true
+      #      驼峰转下划线配置
+      hibernate:
+        naming:
+          physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+
+    secondary:
+      show-sql: true
+      hibernate:
+        naming:
+          physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+
+    
+    
+    
+    
+    
+    
