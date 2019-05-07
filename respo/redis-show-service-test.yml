@@ -9,7 +9,7 @@ logging:
         web: DEBUG
       hibernate: ERROR
 neo:
-  hello: hello world
+  hello: hello new world
 eureka:
   client:
     service-url:
