@@ -1,0 +1,30 @@
+server:
+  port: 9096
+
+spring:
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/datamanager?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: ok
+  application:
+    name: data-service
+## Mybatis 配置
+mybatis:
+  typeAliasesPackage: com.qianjiang.data.dao.entity
+  mapperLocations: classpath:mapper/*.xml
+
+logging:
+  level:
+    root: INFO
+    com.qianjiang.data.dao.mapper: debug
+    org:
+      springframework:
+        web: DEBUG
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:10000/eureka/
