@@ -3,9 +3,16 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:10000/eureka/
 server:
-  port: 9091
+  port: 9191
 spring:
   application:
     name: service-feign
+logging:
+  level:
+    root: INFO
+    org:
+      springframework:
+        web: DEBUG
+
 swagger:
   enable: true
